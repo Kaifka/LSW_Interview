@@ -10,7 +10,10 @@ public class CharacterController2D : MonoBehaviour, IShopCustomer
 	[SerializeField] float speed = 2f;
 	Vector2 motionVector;
 	
-	public List<Item> inventory;
+	//public List<Item> inventory;
+	
+	public Inventory inventory;
+	[SerializeField] private GUI_Inventory guiInventory;
 	
 	public int credits;
 	
@@ -19,8 +22,12 @@ public class CharacterController2D : MonoBehaviour, IShopCustomer
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
+		
 		credits = 10;
 		creditTxt = GameObject.Find("CreditTxt").GetComponent<Text>();
+		
+		inventory = new Inventory();
+		guiInventory.SetInventory(inventory);
     }
 	
 	private void Update()
@@ -49,7 +56,7 @@ public class CharacterController2D : MonoBehaviour, IShopCustomer
 		Item item = ShopItemDatabase.GetItemByID(itemID);
 		if (credits >= item.itemCost)
 		{
-			inventory.Add (item);
+			inventory.AddItem (item);
 			Debug.Log(item.itemName);
 			credits -= item.itemCost;
 		}
@@ -63,21 +70,16 @@ public class CharacterController2D : MonoBehaviour, IShopCustomer
 	public void SoldItem(string itemID)
 	{
 		Item item = ShopItemDatabase.GetItemByID(itemID);
-		for (int i = 0; i < inventory.Count; i++)
+		for (int i = 0; i < inventory.GetList().Count; i++)
 		{
-			if (inventory[i].itemID == itemID)
+			if (inventory.GetList()[i].itemID == itemID)
 			{
 				credits += item.itemCost;
-				inventory.Remove (inventory[i]);
+				inventory.RemoveItem (inventory.GetList()[i]);
 				return;
 			}
 		}
 		Notification.ShowNotificationStatic("No Item to Sell");
-	}
-	
-	public List<Item> GetInventory()
-	{
-		return inventory;
 	}
 
 }
