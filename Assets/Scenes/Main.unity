@@ -173,6 +173,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9c9aba79b8c7d4ba3d2e8515c436a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  player: {fileID: 0}
+  defHead: {fileID: 21300000, guid: 468244f274f38f64b85773c7888444b6, type: 3}
+  defBody: {fileID: 21300000, guid: 215dd6c48c732d744aecd29e7fecbbfa, type: 3}
 --- !u!1 &88920233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,7 +1235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &527070942
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1265,6 +1269,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9c9aba79b8c7d4ba3d2e8515c436a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  player: {fileID: 0}
+  defHead: {fileID: 0}
+  defBody: {fileID: 0}
 --- !u!1001 &681363951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1396,6 +1404,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9c9aba79b8c7d4ba3d2e8515c436a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  player: {fileID: 0}
+  defHead: {fileID: 21300000, guid: 468244f274f38f64b85773c7888444b6, type: 3}
+  defBody: {fileID: 21300000, guid: 215dd6c48c732d744aecd29e7fecbbfa, type: 3}
 --- !u!1 &702303209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,6 +1530,8 @@ MonoBehaviour:
   handItem: {fileID: 0}
   torso: {fileID: 1740963566}
   hood: {fileID: 1934775399}
+  headSlot: {fileID: 693627524}
+  bodySlot: {fileID: 68547221}
 --- !u!1 &782394820
 GameObject:
   m_ObjectHideFlags: 0

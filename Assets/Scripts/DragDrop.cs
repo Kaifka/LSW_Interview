@@ -30,11 +30,34 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 		Debug.Log("Clicked Item" + item.itemName);
 		if (item.itemType == "Head")
 		{
-			player.GetComponent<CharacterEquipment>().SetHeadItem(item);
+			if (player.GetComponent<CharacterEquipment>().GetHeadItem() == null)
+			{
+				player.GetComponent<CharacterEquipment>().SetHeadItem(item);
+				player.GetComponent<CharacterController2D>().inventory.RemoveItem(item);
+			}
+			else
+			{
+				Item alreadyEquip = player.GetComponent<CharacterEquipment>().GetHeadItem();
+				player.GetComponent<CharacterEquipment>().SetHeadItem(item);
+				player.GetComponent<CharacterController2D>().inventory.RemoveItem(item);
+				player.GetComponent<CharacterController2D>().inventory.AddItem(alreadyEquip);
+			}
+
 		}
 		else if (item.itemType == "Body")
 		{
-			player.GetComponent<CharacterEquipment>().SetBodyItem(item);
+			if (player.GetComponent<CharacterEquipment>().GetBodyItem() == null)
+			{
+				player.GetComponent<CharacterEquipment>().SetBodyItem(item);
+				player.GetComponent<CharacterController2D>().inventory.RemoveItem(item);
+			}
+			else
+			{
+				Item alreadyEquip = player.GetComponent<CharacterEquipment>().GetBodyItem();
+				player.GetComponent<CharacterEquipment>().SetBodyItem(item);
+				player.GetComponent<CharacterController2D>().inventory.RemoveItem(item);
+				player.GetComponent<CharacterController2D>().inventory.AddItem(alreadyEquip);
+			}
 		}
 	}
 	

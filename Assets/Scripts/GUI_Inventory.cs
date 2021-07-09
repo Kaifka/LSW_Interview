@@ -47,7 +47,6 @@ public class GUI_Inventory : MonoBehaviour
 				itemSlotRectTransform.gameObject.SetActive(true);
 				itemSlotRectTransform.anchoredPosition = new Vector3(x * itemSlotSize, y * itemSlotSize);
 				itemSlotRectTransform.GetChild(1).GetComponent<DragDrop>().SetItem(item);
-				//itemSlotTemplate.GetChild(1).GetComponent<DragDrop>().SetItem(item);
 				Image image = itemSlotRectTransform.Find("sprite").GetComponent<Image>();
 				image.sprite = item.itemSprite;
 				x++;
