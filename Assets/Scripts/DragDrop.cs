@@ -11,20 +11,31 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 	private CanvasGroup canvasGroup;
 	public Item item;
 	
+	public GameObject player;
+	
 	private void Awake()
 	{
+		player = GameObject.Find("Player");
 		rectTransform = GetComponent<RectTransform>();
 		canvasGroup = GetComponent<CanvasGroup>();
 	}
 	
-	public void SetItem(Item item)
+	public void SetItem(Item incomingItem)
 	{
-		this.item = item;
+		item = incomingItem;
 	}
 	
     public void OnPointerDown(PointerEventData eventData)
 	{
 		Debug.Log("Clicked Item" + item.itemName);
+		if (item.itemType == "Head")
+		{
+			player.GetComponent<CharacterEquipment>().SetHeadItem(item);
+		}
+		else if (item.itemType == "Body")
+		{
+			player.GetComponent<CharacterEquipment>().SetBodyItem(item);
+		}
 	}
 	
 	public void OnDrag(PointerEventData eventData)

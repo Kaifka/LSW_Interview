@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a793bfe42c8fcc4185f5d143d518920, type: 3}
-  m_Name: Hai
+  m_Name: Hood3
   m_EditorClassIdentifier: 
-  itemID: 0
-  itemName: Helmet of Vroom
+  itemID: 5
+  itemName: Hood of Three
+  itemType: Hood
   itemCost: 1
-  itemSprite: {fileID: -1019299670136064670, guid: aaef91c663e7821499fc453da5dcdd99, type: 3}
+  itemSprite: {fileID: 21300000, guid: ae2d3e3bacfacde4981510b116293dba, type: 3}

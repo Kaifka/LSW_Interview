@@ -20,9 +20,20 @@ public class Shop : MonoBehaviour {
 	{
 		Item hai = ShopItemDatabase.GetItemByID("0");
 		Item hey = ShopItemDatabase.GetItemByID("1");
+		Item hoy = ShopItemDatabase.GetItemByID("2");
+		
+		Item a = ShopItemDatabase.GetItemByID("3");
+		Item b = ShopItemDatabase.GetItemByID("4");
+		Item c = ShopItemDatabase.GetItemByID("5");
+		
 		// Create Items by using programmable objects
 		CreateItemButton(hai.itemSprite, hai.itemID, hai.itemName, hai.itemCost, 0);
 		CreateItemButton(hey.itemSprite, hey.itemID, hey.itemName, hey.itemCost, 1);
+		CreateItemButton(hoy.itemSprite, hoy.itemID, hoy.itemName, hoy.itemCost, 2);
+		
+		CreateItemButton(a.itemSprite, a.itemID, a.itemName, a.itemCost, 3);
+		CreateItemButton(b.itemSprite, b.itemID, b.itemName, b.itemCost, 4);
+		CreateItemButton(c.itemSprite, c.itemID, c.itemName, c.itemCost, 5);
 	}
 
 	private void CreateItemButton(Sprite itemSprite, string itemID, string itemName, int itemCost, int positionIndex)
@@ -30,7 +41,7 @@ public class Shop : MonoBehaviour {
 		Transform shopItemTransform = Instantiate(shopItemTemplate, container);
 		RectTransform shopItemRectTransform = shopItemTransform.GetComponent<RectTransform>();
 		
-		float shopItemHeight = 80f;
+		float shopItemHeight = 55f;
 		shopItemRectTransform.anchoredPosition = new Vector2(0, -shopItemHeight * positionIndex);
 		
 		shopItemTransform.Find("itemName").GetComponent<Text>().text = itemName;

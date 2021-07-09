@@ -57,7 +57,6 @@ public class CharacterController2D : MonoBehaviour, IShopCustomer
 		if (credits >= item.itemCost)
 		{
 			inventory.AddItem (item);
-			Debug.Log(item.itemName);
 			credits -= item.itemCost;
 		}
 		else

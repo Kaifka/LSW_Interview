@@ -39,19 +39,23 @@ public class GUI_Inventory : MonoBehaviour
 		int y = 0;
 		float itemSlotSize = 45f;
 		// Loop all items in the inventory a draw a template for each
-		foreach (Item item in inventory.GetList())
+		if (inventory.GetList().Count > 0)
 		{
-			RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, slotContainer).GetComponent<RectTransform>();
-			itemSlotTemplate.GetChild(1).GetComponent<DragDrop>().SetItem(item);
-			itemSlotRectTransform.gameObject.SetActive(true);
-			itemSlotRectTransform.anchoredPosition = new Vector3(x * itemSlotSize, y * itemSlotSize);
-			Image image = itemSlotRectTransform.Find("sprite").GetComponent<Image>();
-			image.sprite = item.itemSprite;
-			x++;
-			if (x > 4)
+			foreach (Item item in inventory.GetList())
 			{
-				x = 0;
-				y--;
+				RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, slotContainer).GetComponent<RectTransform>();
+				itemSlotRectTransform.gameObject.SetActive(true);
+				itemSlotRectTransform.anchoredPosition = new Vector3(x * itemSlotSize, y * itemSlotSize);
+				itemSlotRectTransform.GetChild(1).GetComponent<DragDrop>().SetItem(item);
+				//itemSlotTemplate.GetChild(1).GetComponent<DragDrop>().SetItem(item);
+				Image image = itemSlotRectTransform.Find("sprite").GetComponent<Image>();
+				image.sprite = item.itemSprite;
+				x++;
+				if (x > 4)
+				{
+					x = 0;
+					y--;
+				}
 			}
 		}
 	}

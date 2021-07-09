@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class CharacterEquipment : MonoBehaviour
 {
-    private Item headItem;
-	private Item bodyItem;
-	private Item handItem;
+    public Item headItem;
+	public Item bodyItem;
+	public Item handItem;
+	
+	public GameObject torso;
+	public GameObject hood;
 	
 	public Item GetHeadItem()
 	{
@@ -26,11 +29,13 @@ public class CharacterEquipment : MonoBehaviour
 	public void SetHeadItem(Item item)
 	{
 		headItem = item;
+		hood.GetComponent<SpriteRenderer>().sprite = headItem.itemSprite;
 	}
 	
 	public void SetBodyItem(Item item)
 	{
 		bodyItem = item;
+		torso.GetComponent<SpriteRenderer>().sprite = bodyItem.itemSprite;
 	}
 	
 	public void SetHandItem(Item item)
